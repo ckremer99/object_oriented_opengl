@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0635C9362CB34D5B00B24FB5 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0635C9352CB34D5B00B24FB5 /* OpenGL.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		0635C5322CB34C4400B24FB5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		0635C5342CB34C4400B24FB5 /* object_oriented_opengl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = object_oriented_opengl; sourceTree = BUILT_PRODUCTS_DIR; };
+		0635C9352CB34D5B00B24FB5 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -35,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0635C9362CB34D5B00B24FB5 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				0635C5362CB34C4400B24FB5 /* object_oriented_opengl */,
+				0635C9342CB34D5A00B24FB5 /* Frameworks */,
 				0635C5352CB34C4400B24FB5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +62,14 @@
 				0635C5342CB34C4400B24FB5 /* object_oriented_opengl */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0635C9342CB34D5A00B24FB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0635C9352CB34D5B00B24FB5 /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +260,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/object_oriented_opengl/include",
+					"${PROJECT_DIR}/object_oriented_opengl/objects",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/object_oriented_opengl/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -253,6 +276,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"${PROJECT_DIR}/object_oriented_opengl/include",
+					"${PROJECT_DIR}/object_oriented_opengl/objects",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/object_oriented_opengl/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
