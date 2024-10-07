@@ -7,14 +7,12 @@
 
 #include "stb_image.h"
 #include <string>
+#include <iostream>
 
 class Cube {
 public:
-    static glm::mat4 view;
-    static glm::mat4 projection;
+    static Camera camera;
     
-
-   
 private:
     
     static constexpr float vertices[] = {
@@ -83,16 +81,15 @@ public:
     void draw(Shader s) {
         
         glm::mat4 model = glm::mat4(1.0f);
-        model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::translate(model, position);
 
-        
         glm::mat4 view = glm::mat4(1.0f);
         // note that we're translating the scene in the reverse direction of where we want to move
-        view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        view = camera.GetViewMatrix();
 
-        
         glm::mat4 projection;
-        projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+        projection = glm::perspective(camera.Zoom, 800.0f / 600.0f, 0.1f, 100.0f);
+        
         
         s.setMat4("model", model);
         s.setMat4("view", view);
@@ -120,6 +117,8 @@ public:
         unsigned char *data = stbi_load(path, &width, &height, &nrChannels, 0);
 
         if (data) {
+            
+            std::cout << "Texture Loaded successfully" << std::endl;
             glGenTextures(1, &texture);
             glBindTexture(GL_TEXTURE_2D, texture);
             
